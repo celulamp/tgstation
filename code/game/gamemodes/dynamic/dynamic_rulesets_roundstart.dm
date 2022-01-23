@@ -790,7 +790,7 @@
 	flags = HIGH_IMPACT_RULESET
 
 /datum/dynamic_ruleset/roundstart/gnome/execute()
-	addtimer(CALLBACK(src, .proc/make_announcement, 10 seconds))	
+	addtimer(CALLBACK(src, .proc/make_announcement, 10 SECONDS))	
 
 /datum/dynamic_ruleset/roundstart/gnome/proc/make_announcement()
 	priority_announce("A nearby station has been overrun by mysterious mystical creatures.", "Security level elevated.", ANNOUNCER_INTERCEPT)
