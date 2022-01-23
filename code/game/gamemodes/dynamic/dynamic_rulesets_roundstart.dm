@@ -772,3 +772,27 @@
 	for(var/department_type in department_types)
 		create_separatist_nation(department_type, announcement = FALSE, dangerous = FALSE, message_admins = FALSE)
 		
+//////////////////////////////////////////////
+//                                          //
+//            GNOME INVASION                //
+//                                          //
+//////////////////////////////////////////////		
+
+/datum/dynamic_ruleset/roundstart/gnome
+	name = "Gnome invasion"
+	antag_flag = null 
+	antag_datum = null 
+	restricted_roles = list()
+	required_candidates = 0
+	weight = 4
+	cost = 16
+	requirements = list(100,90,80,60,40,30,10,10,10,10)
+	flags = HIGH_IMPACT_RULESET
+
+/datum/dynamic_ruleset/roundstart/gnome/execute()
+	addtimer(CALLBACK(src, .proc/make_announcement, 10 seconds))	
+
+/datum/dynamic_ruleset/roundstart/gnome/proc/make_announcement()
+	priority_announce("A nearby station has been overrun by mysterious mystical creatures.", "Security level elevated.", ANNOUNCER_INTERCEPT)
+	if(SSsecurity_level.current_level < SEC_LEVEL_BLUE)
+		set_security_level(SEC_LEVEL_BLUE)	
