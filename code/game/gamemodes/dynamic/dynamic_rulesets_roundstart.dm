@@ -796,3 +796,7 @@
 	priority_announce("A nearby station has been overrun by mysterious mystical creatures.", "Security level elevated.", ANNOUNCER_INTERCEPT)
 	if(SSsecurity_level.current_level < SEC_LEVEL_BLUE)
 		set_security_level(SEC_LEVEL_BLUE)	
+
+/datum/dynamic_ruleset/roundstart/gnome
+	var/time_stamp = null
+	persistent = TRUE
