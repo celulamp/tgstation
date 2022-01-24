@@ -8,7 +8,6 @@
 	icon_gib = "gnome_death"
 	aggro_vision_range = 11
 	mob_biotypes = MOB_ORGANIC|MOB_BEAST
-	pass_flags = PASSTABLE	
 	speak_chance = 2
 	turns_per_move = 5
 	response_help_continuous = "pets"
@@ -38,6 +37,7 @@
 	minbodytemp = 0
 	maxbodytemp = 1500
 	faction = list("gnome")
+	pass_flags = PASSTABLE		
 	pressure_resistance = 200
 	gold_core_spawnable = HOSTILE_SPAWN
 	var/obj/item/kirbyplants/plantdisguise = null 
