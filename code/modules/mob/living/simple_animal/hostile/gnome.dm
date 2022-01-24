@@ -81,7 +81,9 @@
 		plantdisguise = null
 		update_icon()
 
-/mob/living/simple_animal/hostile/gnome/death()		
+/mob/living/simple_animal/hostile/gnome/death()	
+	. = ..()
+	GLOB.gnome_kills++	
 
 /mob/living/simple_animal/hostile/gnome/proc/consume_bait()
 	for(var/obj/potential_consumption in view(1, src))

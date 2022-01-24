@@ -800,3 +800,7 @@
 /datum/dynamic_ruleset/roundstart/gnome
 	var/time_stamp = null
 	persistent = TRUE
+
+GLOBAL_VAR_INIT(gnome_kills, 0) 
+
+	
