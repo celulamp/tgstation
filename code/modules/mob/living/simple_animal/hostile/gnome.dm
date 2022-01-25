@@ -6,7 +6,7 @@
 	icon_state = "gnome"
 	icon_living = "gnome"
 	icon_gib = "gnome_death"
-	aggro_vision_range = 11
+	aggro_vision_range = 13
 	mob_biotypes = MOB_ORGANIC|MOB_BEAST
 	speak_chance = 2
 	turns_per_move = 5
@@ -20,7 +20,7 @@
 	emote_taunt = list("growls")
 	taunt_chance = 20
 	speed = 1
-	maxHealth = 25
+	maxHealth = 75
 	health = 25 
 	harm_intent_damage = 8
 	obj_damage = 54
@@ -41,6 +41,7 @@
 	pressure_resistance = 200
 	gold_core_spawnable = HOSTILE_SPAWN
 	var/obj/item/kirbyplants/plantdisguise = null 
+	loot = list(/obj/item/clothing/head/gnome)	
 
 /mob/living/simple_animal/hostile/gnome/Initialize(mapload)
 	..()
@@ -81,13 +82,18 @@
 		plantdisguise = null
 		update_icon()
 
-/mob/living/simple_animal/hostile/gnome/death()	
-	. = ..()
-	GLOB.gnome_kills++	
+/mob/living/simple_animal/hostile/gnome/death()    
+    . = ..()
+    GLOB.gnome_kills++    
+	gib_animation()			
 
 /mob/living/simple_animal/hostile/gnome/proc/consume_bait()
 	for(var/obj/potential_consumption in view(1, src))
 		if(istype(potential_consumption, /obj/item/food/grown/harebell))
 			qdel(potential_consumption)
 			visible_message(span_notice("[src] gobbles down [potential_consumption]."))		
-			
+
+/obj/item/clothing/head/gnome
+    name = "Gnome Hat"
+    desc = "Hat of the fallen child."
+    icon_state = "gnome_hat"			
