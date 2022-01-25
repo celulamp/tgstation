@@ -82,10 +82,9 @@
 		plantdisguise = null
 		update_icon()
 
-/mob/living/simple_animal/hostile/gnome/death()    
-    . = ..()
-    GLOB.gnome_kills++    
-	gib_animation()			
+/mob/living/simple_animal/hostile/gnome/death()
+	GLOB.gnome_kills++
+	..()
 
 /mob/living/simple_animal/hostile/gnome/proc/consume_bait()
 	for(var/obj/potential_consumption in view(1, src))
@@ -94,6 +93,6 @@
 			visible_message(span_notice("[src] gobbles down [potential_consumption]."))		
 
 /obj/item/clothing/head/gnome
-    name = "Gnome Hat"
-    desc = "Hat of the fallen child."
-    icon_state = "gnome_hat"			
+	name = "Gnome Hat"
+	desc = "Hat of the fallen child."
+	icon_state = "gnome_hat"			
