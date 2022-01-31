@@ -97,7 +97,7 @@
 	desc = "Hat of the fallen child."
 	icon_state = "gnome_hat"			
 
-/mob/living/simple_animal/hostile/gnome/icenome
+/mob/living/simple_animal/hostile/gnome/icnome
 	name = "Icnome"
 	desc = "A gnome trapped inside a ice cube."
 	icon_state = "icnome"
