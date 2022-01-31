@@ -105,7 +105,7 @@
 	speed = 0	
 	var/temperature = -50
 
-	/mob/living/simple_animal/hostile/gnome/icnome/AttackingTarget()
+/mob/living/simple_animal/hostile/gnome/icnome/AttackingTarget()
 	. = ..()
 	if(iscarbon(target))
 		var/mob/living/carbon/hit_mob = target
