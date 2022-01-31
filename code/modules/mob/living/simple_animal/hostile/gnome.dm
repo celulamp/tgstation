@@ -99,60 +99,24 @@
 
 /mob/living/simple_animal/hostile/gnome/icenome
 	name = "Icnome"
-	desc = "A living automaton with the appearance of a lawn gnome."
-	del_on_death = TRUE
-	icon = 'icons/mob/gnome.dmi'
+	desc = "A gnome trapped inside a ice cube."
 	icon_state = "icnome"
 	icon_living = "icnome"
-	icon_gib = "gnome_death"
-	aggro_vision_range = 13
-	mob_biotypes = MOB_ORGANIC|MOB_BEAST
-	speak_chance = 2
-	turns_per_move = 5
-	response_help_continuous = "pets"
-	response_help_simple = "pet"
-	response_disarm_continuous = "gently pushes aside"
-	response_disarm_simple = "gently push aside"
-	robust_searching = 1
-	search_objects = 1
-	wanted_objects = list(/obj/item/food/grown/harebell)		
-	emote_taunt = list("growls")
-	taunt_chance = 20	
 	speed = 0	
-	maxHealth = 75
-	health = 25 
-	harm_intent_damage = 8
-	obj_damage = 54
-	melee_damage_lower = 20
-	melee_damage_upper = 20
-	attack_verb_continuous = "bites"
-	attack_verb_simple = "bite"
-	attack_sound = 'sound/creatures/gnomechomp.wav'
-	deathsound = 'sound/creatures/gnomedeath.ogg'
-	attack_vis_effect = ATTACK_EFFECT_BITE
-	speak_emote = list("growls")
-	//Space gnomes aren't affected by cold.
-	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_plas" = 0, "max_plas" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
-	minbodytemp = 0
-	maxbodytemp = 1500
-	faction = list("gnome")
-	pass_flags = PASSTABLE		
-	pressure_resistance = 200
-	gold_core_spawnable = HOSTILE_SPAWN
 	var/temperature = -50
 
-	/mob/living/simple_animal/hostile/gnome/AttackingTarget()
-    . = ..()
-    if(iscarbon(target))
-        var/mob/living/carbon/hit_mob = target
-        var/thermal_protection = 1 - hit_mob.get_insulation_protection(hit_mob.bodytemperature + temperature)
+	/mob/living/simple_animal/hostile/gnome/icnome/AttackingTarget()
+    	. = ..()
+    	if(iscarbon(target))
+        	var/mob/living/carbon/hit_mob = target
+        	var/thermal_protection = 1 - hit_mob.get_insulation_protection(hit_mob.bodytemperature + temperature)
 
-        // The new body temperature is adjusted by the bullet's effect temperature
-        // Reduce the amount of the effect temperature change based on the amount of insulation the mob is wearing
-        hit_mob.adjust_bodytemperature((thermal_protection * temperature) + temperature)
+        	// The new body temperature is adjusted by the bullet's effect temperature
+        	// Reduce the amount of the effect temperature change based on the amount of insulation the mob is wearing
+        	hit_mob.adjust_bodytemperature((thermal_protection * temperature) + temperature)
 
-    else if(isliving(target))
-        var/mob/living/L = target
-        // the new body temperature is adjusted by the bullet's effect temperature
-        L.adjust_bodytemperature((1 - blocked) * temperature)	
+    	else if(isliving(target))
+        	var/mob/living/L = target
+        	// the new body temperature is adjusted by the bullet's effect temperature
+        	L.adjust_bodytemperature((1 - blocked) * temperature)	
 
