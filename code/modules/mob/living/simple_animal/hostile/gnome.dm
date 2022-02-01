@@ -120,8 +120,8 @@
 		// the new body temperature is adjusted by the bullet's effect temperature
 
 /mob/living/simple_animal/hostile/gnome/icnome/death()
-    var/turf/T = get_turf(src)
-        if(isopenturf(T))
-            var/turf/open/O = T
-            O.freeze_turf()
+	var/turf/turf = get_turf(src)
+    if(isopenturf(turf))
+        var/turf/open/O = T
+        O.freeze_turf()
     ..()
