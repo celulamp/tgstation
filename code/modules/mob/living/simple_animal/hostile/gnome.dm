@@ -104,6 +104,7 @@
 	icon_living = "icnome"
 	speed = 0	
 	var/temperature = -50
+	loot = 		
 
 /mob/living/simple_animal/hostile/gnome/icnome/AttackingTarget()
 	. = ..()
@@ -121,7 +122,7 @@
 
 /mob/living/simple_animal/hostile/gnome/icnome/death()
 	var/turf/turf = get_turf(src)
-    if(isopenturf(turf))
-        var/turf/open/O = T
-        O.freeze_turf()
-    ..()
+	if(isopenturf(turf))
+		var/turf/open/O = T
+		O.freeze_turf()
+		..()
