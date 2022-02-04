@@ -20,8 +20,7 @@
 	emote_taunt = list("growls")
 	taunt_chance = 20
 	speed = 1
-	maxHealth = 75
-	health = 25 
+	maxHealth = 45
 	harm_intent_damage = 8
 	obj_damage = 54
 	melee_damage_lower = 20
@@ -55,12 +54,13 @@
 	..()	
 
 /mob/living/simple_animal/hostile/gnome/update_overlays()
-	. = ..()
-	var/mutable_appearance/hat_overlay = mutable_appearance('icons/mob/gnome.dmi', "hat")
-	. += hat_overlay
-	if(plantdisguise)
-		var/mutable_appearance/plant_overlay = mutable_appearance(plantdisguise.icon, plantdisguise.icon_state)
-		. += plant_overlay
+    . = ..()
+    var/mutable_appearance/hat_overlay = mutable_appearance('icons/mob/gnome.dmi', "hat")
+    hat_overlay.color = hatcolor
+    . += hat_overlay
+    if(plantdisguise)
+        var/mutable_appearance/plant_overlay = mutable_appearance(plantdisguise.icon, plantdisguise.icon_state)
+        . += plant_overlay
 		
 /mob/living/simple_animal/hostile/gnome/Life(delta_time = SSMOBS_DT, times_fired)
 	..()
