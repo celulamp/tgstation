@@ -154,4 +154,11 @@
 	melee_damage_upper = 25
 	attack_verb_continuous = "pulverizes"
 	attack_verb_simple = "pulverizes"	
-	attack_vis_effect = ATTACK_EFFECT_SLASH	
+	attack_vis_effect = ATTACK_EFFECT_SLASH
+
+/mob/living/simple_animal/hostile/gnome/sternome/AttackingTarget()
+	. = ..()
+	if(. && isliving(target))
+        var/mob/living/L = target
+        var/atom/throw_target = get_edge_target_turf(L, dir)
+        L.throw_at(throw_target, rand(1,2), 7, src)		
