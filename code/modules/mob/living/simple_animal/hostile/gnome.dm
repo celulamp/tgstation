@@ -41,11 +41,13 @@
 	pressure_resistance = 200
 	gold_core_spawnable = HOSTILE_SPAWN
 	var/obj/item/kirbyplants/plantdisguise = null 
-	loot = list(/obj/item/clothing/head/gnome)	
+	loot = list(/obj/item/clothing/head/gnome)
+	var/hatcolor	
 
 /mob/living/simple_animal/hostile/gnome/Initialize(mapload)
 	..()
 	AddComponent(/datum/component/swarming)
+	hatcolor = pick("red","blue","green","yellow","gray","purple","orange")	
 	update_icon()
 
 /mob/living/simple_animal/hostile/gnome/Destroy()
@@ -55,11 +57,11 @@
 /mob/living/simple_animal/hostile/gnome/update_overlays()
 	. = ..()
 	var/mutable_appearance/hat_overlay = mutable_appearance('icons/mob/gnome.dmi', "hat")
-	hat_overlay.color = pick("red","blue","green","yellow","gray","purple","orange")
 	. += hat_overlay
 	if(plantdisguise)
 		var/mutable_appearance/plant_overlay = mutable_appearance(plantdisguise.icon, plantdisguise.icon_state)
-		. += plant_overlay		
+		. += plant_overlay
+		
 /mob/living/simple_animal/hostile/gnome/Life(delta_time = SSMOBS_DT, times_fired)
 	..()
 	if(stat)
@@ -104,7 +106,7 @@
 	icon_living = "icnome"
 	speed = 0	
 	var/temperature = -50
-	loot = 		
+	loot = null
 
 /mob/living/simple_animal/hostile/gnome/icnome/AttackingTarget()
 	. = ..()
@@ -123,6 +125,6 @@
 /mob/living/simple_animal/hostile/gnome/icnome/death()
 	var/turf/turf = get_turf(src)
 	if(isopenturf(turf))
-		var/turf/open/O = T
+		var/turf/open/O = turf
 		O.freeze_turf()
 		..()
