@@ -133,3 +133,7 @@
 		var/turf/open/O = turf
 		O.freeze_turf()
 		..()
+
+/mob/living/simple_animal/hostile/gnome/sternome
+	name = "Sternome"
+	desc = "Assistants captured and fed maintence drugs to this beast."		
