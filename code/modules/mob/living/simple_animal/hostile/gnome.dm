@@ -113,7 +113,7 @@
 	icon_living = "icnome"
 	speed = 2
 	var/temperature = -5
-	loot = null
+	loot = list()
 	has_drip = FALSE
 
 /mob/living/simple_animal/hostile/gnome/icnome/AttackingTarget()
@@ -147,7 +147,7 @@
 	del_on_death = FALSE	
 	speed = 5
 	health = 390
-	loot = null
+	loot = list()
 	has_drip = FALSE
 	harm_intent_damage = 12
 	obj_damage = 59
