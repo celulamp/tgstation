@@ -157,7 +157,7 @@
 	attack_verb_simple = "pulverizes"	
 	attack_vis_effect = ATTACK_EFFECT_SLASH
 	environment_smash = ENVIRONMENT_SMASH_WALLS
-	attack_sound = 'sound/creatures/sternomeattack.wav'
+	attack_sound = 'sound/creatures/sternomeattack.ogg'
 	deathsound = 'sound/creatures/sternomedeath.ogg'	
 
 /mob/living/simple_animal/hostile/gnome/sternome/AttackingTarget()
