@@ -21,6 +21,7 @@
 	taunt_chance = 20
 	speed = 1
 	health = 45
+	maxHealth = 45
 	harm_intent_damage = 8
 	obj_damage = 48
 	melee_damage_lower = 20
@@ -145,8 +146,9 @@
 	icon_living = "sternome"
 	icon_dead = "sternome_dead"
 	del_on_death = FALSE	
-	speed = 5
+	speed = 7
 	health = 390
+	maxHealth = 390
 	loot = list()
 	has_drip = FALSE
 	harm_intent_damage = 12
@@ -166,3 +168,34 @@
 		var/mob/living/L = target
 		var/atom/throw_target = get_edge_target_turf(L, dir)
 		L.throw_at(throw_target, rand(1,2), 7, src)		
+
+/mob/living/simple_animal/hostile/gnome/gribel
+	name = "Gribel"
+	desc = "His eyes follow your every move."
+	icon_state = "gribel"
+	icon_living = "gribel"
+	health = 3500
+	maxHealth = 3500
+	attack_verb_continuous = "whispers"
+	attack_verb_simple = "whispers"
+	attack_sound = 'sound/creatures/gribelattack.mp3'
+	deathsound = 'sound/creatures/gribeldeath.mp3'
+	speak_emote = list("cries")
+	friendly_verb_continuous = "stares down"
+	friendly_verb_simple = "stare down"
+	armour_penetration = 46
+	melee_damage_lower = 32
+	melee_damage_upper = 32
+	speed = 14	
+	move_to_delay = 10
+	del_on_death = TRUE
+	loot = list(/obj/structure/closet/crate/necropolis/tendril)
+	deathmessage = "sacrifices himself for all of the gnomes."	
+
+/mob/living/simple_animal/hostile/gnome/gribel/AttackingTarget()
+	. = ..()
+	if(iscarbon(M))
+        var/mob/living/carbon/C = M
+        if(!istype(C.head, /obj/item/clothing/head/helmet))
+            C.adjustOrganLoss(ORGAN_SLOT_BRAIN, 3, 30)
+            to_chat(C, span_danger("You feel dumber."))	
