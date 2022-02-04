@@ -90,6 +90,9 @@
 
 /mob/living/simple_animal/hostile/gnome/death()
 	GLOB.gnome_kills++
+	if(plantdisguise)
+		plantdisguise.loc = loc
+		plantdisguise = null	
 	..()
 
 /mob/living/simple_animal/hostile/gnome/proc/consume_bait()
