@@ -20,9 +20,9 @@
 	emote_taunt = list("growls")
 	taunt_chance = 20
 	speed = 1
-	maxHealth = 45
+	maxhealth = 45
 	harm_intent_damage = 8
-	obj_damage = 54
+	obj_damage = 48
 	melee_damage_lower = 20
 	melee_damage_upper = 20
 	attack_verb_continuous = "bites"
@@ -111,7 +111,7 @@
 	desc = "If he's trapped in there and we're out here then what I wanna know is.."
 	icon_state = "icnome"
 	icon_living = "icnome"
-	speed = 0	
+	speed = 2
 	var/temperature = -5
 	loot = null
 	has_drip = FALSE
@@ -139,4 +139,19 @@
 
 /mob/living/simple_animal/hostile/gnome/sternome
 	name = "Sternome"
-	desc = "Assistants captured and fed maintence drugs to this beast."		
+	desc = "Assistants captured and fed maintence drugs to this beast."	
+	icon_state = "sternome"
+	icon_living = "sternome"
+	icon_dead = "sternome_dead"
+	del_on_death = FALSE	
+	speed = 5
+	maxhealth = 390
+	loot = null
+	has_drip = FALSE
+	harm_intent_damage = 12
+	obj_damage = 59
+	melee_damage_lower = 25
+	melee_damage_upper = 25
+	attack_verb_continuous = "pulverizes"
+	attack_verb_simple = "pulverizes"	
+	attack_vis_effect = ATTACK_EFFECT_SLASH	
