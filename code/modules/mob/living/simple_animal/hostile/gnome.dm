@@ -20,7 +20,7 @@
 	emote_taunt = list("growls")
 	taunt_chance = 20
 	speed = 1
-	maxHealth = 45
+	health = 45
 	harm_intent_damage = 8
 	obj_damage = 48
 	melee_damage_lower = 20
@@ -146,7 +146,7 @@
 	icon_dead = "sternome_dead"
 	del_on_death = FALSE	
 	speed = 5
-	maxHealth = 390
+	health = 390
 	loot = null
 	has_drip = FALSE
 	harm_intent_damage = 12
@@ -156,6 +156,9 @@
 	attack_verb_continuous = "pulverizes"
 	attack_verb_simple = "pulverizes"	
 	attack_vis_effect = ATTACK_EFFECT_SLASH
+	environment_smash = ENVIRONMENT_SMASH_WALLS
+	attack_sound = 'sound/creatures/sternomeattack.wav'
+	deathsound = 'sound/creatures/sternomedeath.ogg'	
 
 /mob/living/simple_animal/hostile/gnome/sternome/AttackingTarget()
 	. = ..()
