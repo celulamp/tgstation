@@ -20,7 +20,7 @@
 	emote_taunt = list("growls")
 	taunt_chance = 20
 	speed = 1
-	maxhealth = 45
+	maxHealth = 45
 	harm_intent_damage = 8
 	obj_damage = 48
 	melee_damage_lower = 20
@@ -146,7 +146,7 @@
 	icon_dead = "sternome_dead"
 	del_on_death = FALSE	
 	speed = 5
-	maxhealth = 390
+	maxHealth = 390
 	loot = null
 	has_drip = FALSE
 	harm_intent_damage = 12
@@ -160,6 +160,6 @@
 /mob/living/simple_animal/hostile/gnome/sternome/AttackingTarget()
 	. = ..()
 	if(. && isliving(target))
-        var/mob/living/L = target
-        var/atom/throw_target = get_edge_target_turf(L, dir)
-        L.throw_at(throw_target, rand(1,2), 7, src)		
+		var/mob/living/L = target
+		var/atom/throw_target = get_edge_target_turf(L, dir)
+		L.throw_at(throw_target, rand(1,2), 7, src)		
