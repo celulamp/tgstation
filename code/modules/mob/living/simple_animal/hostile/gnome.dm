@@ -39,9 +39,10 @@
 	pass_flags = PASSTABLE		
 	pressure_resistance = 200
 	gold_core_spawnable = HOSTILE_SPAWN
+	loot = list(/obj/item/clothing/head/gnome)	
 	var/obj/item/kirbyplants/plantdisguise = null 
-	loot = list(/obj/item/clothing/head/gnome)
-	var/hatcolor	
+	var/hatcolor
+	var/has_drip = TRUE	
 
 /mob/living/simple_animal/hostile/gnome/Initialize(mapload)
 	..()
@@ -55,9 +56,12 @@
 
 /mob/living/simple_animal/hostile/gnome/update_overlays()
     . = ..()
-    var/mutable_appearance/hat_overlay = mutable_appearance('icons/mob/gnome.dmi', "hat")
-    hat_overlay.color = hatcolor
-    . += hat_overlay
+    if(!has_drip)
+        return
+    else
+        var/mutable_appearance/hat_overlay = mutable_appearance('icons/mob/gnome.dmi', "hat")
+        hat_overlay.color = hatcolor
+        . += hat_overlay
     if(plantdisguise)
         var/mutable_appearance/plant_overlay = mutable_appearance(plantdisguise.icon, plantdisguise.icon_state)
         . += plant_overlay
@@ -101,12 +105,13 @@
 
 /mob/living/simple_animal/hostile/gnome/icnome
 	name = "Icnome"
-	desc = "A gnome trapped inside a ice cube."
+	desc = "If he's trapped in there and we're out here then what I wanna know is.."
 	icon_state = "icnome"
 	icon_living = "icnome"
 	speed = 0	
-	var/temperature = -50
+	var/temperature = -5
 	loot = null
+	has_drip = FALSE
 
 /mob/living/simple_animal/hostile/gnome/icnome/AttackingTarget()
 	. = ..()
