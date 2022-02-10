@@ -169,7 +169,7 @@
 		var/atom/throw_target = get_edge_target_turf(L, dir)
 		L.throw_at(throw_target, rand(1,2), 7, src)		
 
-/mob/living/simple_animal/hostile/gnome/gribel
+/mob/living/simple_animal/hostile/gribel
 	name = "Gribel"
 	desc = "His eyes follow your every move."
 	icon_state = "gribel"
@@ -190,9 +190,10 @@
 	move_to_delay = 10
 	del_on_death = TRUE
 	loot = list(/obj/structure/closet/crate/necropolis/tendril)
-	deathmessage = "sacrifices himself for all of the gnomes."	
+	deathmessage = "sacrifices himself for all of the gnomes."
+	has_drip = FALSE
 
-/mob/living/simple_animal/hostile/gnome/gribel/AttackingTarget()
+/mob/living/simple_animal/hostile/gribel/AttackingTarget()
 	. = ..()
 	if(iscarbon(target))
 		var/mob/living/carbon/C = target
