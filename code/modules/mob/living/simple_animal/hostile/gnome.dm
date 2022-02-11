@@ -191,7 +191,7 @@
 	del_on_death = TRUE
 	loot = list(/obj/structure/closet/crate/necropolis/tendril)
 	deathmessage = "sacrifices himself for all of the gnomes."
-	has_drip = FALSE
+	var/has_drip = FALSE
 
 /mob/living/simple_animal/hostile/gribel/AttackingTarget()
 	. = ..()
