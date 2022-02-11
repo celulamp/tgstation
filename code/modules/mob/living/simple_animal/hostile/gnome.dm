@@ -192,6 +192,7 @@
 	loot = list(/obj/structure/closet/crate/necropolis/tendril)
 	deathmessage = "sacrifices himself for all of the gnomes."
 	var/has_drip = FALSE
+	icon = 'icons/mob/gribel.dmi'
 
 /mob/living/simple_animal/hostile/gribel/AttackingTarget()
 	. = ..()
