@@ -44,6 +44,7 @@
 	var/obj/item/kirbyplants/plantdisguise = null 
 	var/hatcolor
 	var/has_drip = TRUE	
+	var/can_disguise = TRUE
 
 /mob/living/simple_animal/hostile/gnome/Initialize(mapload)
 	..()
@@ -73,7 +74,7 @@
 		return
 	if(DT_PROB(5, delta_time))
 		playsound(src, 'sound/creatures/gnomechuckle.wav', 50, TRUE)
-	if(!plantdisguise && DT_PROB(30, delta_time))
+	if(can_disguise && !plantdisguise && DT_PROB(30, delta_time))
 		var/obj/item/kirbyplants/plant = locate() in range(src,2)	
 		if (plant)
 			plantdisguise = plant
@@ -116,6 +117,7 @@
 	var/temperature = -5
 	loot = list()
 	has_drip = FALSE
+	can_disguise = FALSE	
 
 /mob/living/simple_animal/hostile/gnome/icnome/AttackingTarget()
     . = ..()
@@ -151,6 +153,7 @@
 	maxHealth = 390
 	loot = list()
 	has_drip = FALSE
+	can_disguise = FALSE	
 	harm_intent_damage = 12
 	obj_damage = 59
 	melee_damage_lower = 25
