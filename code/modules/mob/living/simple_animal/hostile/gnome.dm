@@ -179,8 +179,8 @@
 	icon_living = "gribel"
 	health = 3500
 	maxHealth = 3500
-	attack_verb_continuous = "whispers"
-	attack_verb_simple = "whispers"
+	attack_verb_continuous = "degrades"
+	attack_verb_simple = "degrades"
 	attack_sound = 'sound/creatures/gribelattack.mp3'
 	deathsound = 'sound/creatures/gribeldeath.mp3'
 	speak_emote = list("cries")
@@ -189,13 +189,32 @@
 	armour_penetration = 46
 	melee_damage_lower = 32
 	melee_damage_upper = 32
-	speed = 14	
-	move_to_delay = 10
-	del_on_death = TRUE
+	speed = 12
+	move_to_delay = 7
+	gib_on_death = TRUE
 	loot = list(/obj/structure/closet/crate/necropolis/tendril)
 	deathmessage = "sacrifices himself for all of the gnomes."
 	var/has_drip = FALSE
 	icon = 'icons/mob/gribel.dmi'
+	aggro_vision_range = 21
+	faction = list("gnome")
+	health_doll_icon = "gribel"
+	pixel_x = -32
+	base_pixel_x = -32
+	maptext_height = 96
+	maptext_width = 96
+	pressure_resistance = 200
+	move_force = MOVE_FORCE_OVERPOWERING
+	move_resist = MOVE_FORCE_OVERPOWERING
+	pull_force = MOVE_FORCE_OVERPOWERING
+	mob_size = MOB_SIZE_HUGE
+	layer = LARGE_MOB_LAYER
+	combat_mode = TRUE
+	sentience_type = SENTIENCE_BOSS
+	environment_smash = ENVIRONMENT_SMASH_RWALLS
+	mob_biotypes = MOB_ORGANIC|MOB_EPIC
+	plane = GAME_PLANE_UPPER_FOV_HIDDEN
+	mouse_opacity = MOUSE_OPACITY_OPAQUE
 
 /mob/living/simple_animal/hostile/gribel/AttackingTarget()
 	. = ..()
