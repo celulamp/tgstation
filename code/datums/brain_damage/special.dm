@@ -412,3 +412,10 @@
 /obj/effect/hallucination/simple/securitron/Destroy()
 	STOP_PROCESSING(SSfastprocess,src)
 	return ..()
+
+/datum/brain_trauma/special/gnomosis
+	name = "Gnomosis"
+	desc = "They're EVERYWHERE!"
+	scan_desc = "gnomosis"
+	gain_text = "<span class='notice'>The gnomes are everywhere...</span>"
+	lose_text = "<span class='warning'>The gnomes are fading they're leaving.</span>"
