@@ -191,7 +191,7 @@
 	melee_damage_upper = 32
 	speed = 12
 	move_to_delay = 7
-	gib_on_death = TRUE
+	del_on_death = TRUE
 	loot = list(/obj/structure/closet/crate/necropolis/tendril)
 	deathmessage = "sacrifices himself for all of the gnomes."
 	var/has_drip = FALSE
