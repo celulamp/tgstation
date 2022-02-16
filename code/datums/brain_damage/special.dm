@@ -419,3 +419,7 @@
 	scan_desc = "gnomosis"
 	gain_text = "<span class='notice'>The gnomes are everywhere...</span>"
 	lose_text = "<span class='warning'>The gnomes are fading they're leaving.</span>"
+
+/datum/brain_trauma/special/gnomosis/on_gain()
+	new /datum/hallucination/delusion(owner, forced = TRUE, force_kind = "gnome", duration = duration, skip_nearby = FALSE)
+	..()
