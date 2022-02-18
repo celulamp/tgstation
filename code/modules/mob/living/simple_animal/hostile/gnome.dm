@@ -223,3 +223,5 @@
 		if(!istype(C.head, /obj/item/clothing/head/helmet))
 			C.adjustOrganLoss(ORGAN_SLOT_BRAIN, 5, 60)
 			to_chat(C, span_danger("You feel dumber."))
+		if(prob(28))
+    target.gain.trauma(gnomosis)
