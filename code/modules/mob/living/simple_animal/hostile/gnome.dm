@@ -224,4 +224,4 @@
 			C.adjustOrganLoss(ORGAN_SLOT_BRAIN, 5, 60)
 			to_chat(C, span_danger("You feel dumber."))
 		if(prob(28))
-    target.gain.trauma(gnomosis)
+			target.gain.trauma(brain_trauma/special/gnomosis)
