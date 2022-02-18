@@ -419,3 +419,13 @@
 	scan_desc = "gnomosis"
 	gain_text = "<span class='notice'>The gnomes are everywhere...</span>"
 	lose_text = "<span class='warning'>The gnomes are fading they're leaving.</span>"
+	var/datum/hallucination/delusion/delusion
+
+
+/datum/brain_trauma/special/gnomosis/on_gain()
+	delusion = new /datum/hallucination/delusion(owner, forced = TRUE, force_kind = "custom", duration = null, skip_nearby = FALSE, custom_icon_file = 'icons/mob/gnome.dmi', custom_icon = "gnome")
+	..()
+
+/datum/brain_trauma/special/gnomosis/on_lose()
+	QDEL_NULL(delusion)
+	..()
