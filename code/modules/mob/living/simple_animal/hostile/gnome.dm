@@ -219,9 +219,9 @@
 /mob/living/simple_animal/hostile/gribel/AttackingTarget()
 	. = ..()
 	if(iscarbon(target))
-		var/mob/living/carbon/C = target
-		if(!istype(C.head, /obj/item/clothing/head/helmet))
-			C.adjustOrganLoss(ORGAN_SLOT_BRAIN, 5, 60)
-			to_chat(C, span_danger("You feel dumber."))
+		var/mob/living/carbon/carbon = target
+		if(!istype(carbon.head, /obj/item/clothing/head/helmet))
+			carbon.adjustOrganLoss(ORGAN_SLOT_BRAIN, 5, 60)
+			to_chat(carbon, span_danger("You feel dumber."))
 		if(prob(28))
-			target.gain.trauma(brain_trauma/special/gnomosis)
+			carbon.gain_trauma(/datum/brain_trauma/special/gnomosis)
