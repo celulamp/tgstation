@@ -57,16 +57,16 @@
 	..()	
 
 /mob/living/simple_animal/hostile/gnome/update_overlays()
-    . = ..()
-    if(!has_drip)
-        return
-    else
-        var/mutable_appearance/hat_overlay = mutable_appearance('icons/mob/gnome.dmi', "hat")
-        hat_overlay.color = hatcolor
-        . += hat_overlay
-    if(plantdisguise)
-        var/mutable_appearance/plant_overlay = mutable_appearance(plantdisguise.icon, plantdisguise.icon_state)
-        . += plant_overlay
+	. = ..()
+	if(!has_drip)
+		return
+	else
+		var/mutable_appearance/hat_overlay = mutable_appearance('icons/mob/gnome.dmi', "hat")
+		hat_overlay.color = hatcolor
+		. += hat_overlay
+	if(plantdisguise)
+		var/mutable_appearance/plant_overlay = mutable_appearance(plantdisguise.icon, plantdisguise.icon_state)
+		. += plant_overlay
 		
 /mob/living/simple_animal/hostile/gnome/Life(delta_time = SSMOBS_DT, times_fired)
 	..()
@@ -120,19 +120,19 @@
 	can_disguise = FALSE	
 
 /mob/living/simple_animal/hostile/gnome/icnome/AttackingTarget()
-    . = ..()
-    if(iscarbon(target))
-        var/mob/living/carbon/hit_mob = target
-        var/thermal_protection = 1 - hit_mob.get_insulation_protection(hit_mob.bodytemperature + src.temperature)
+	. = ..()
+	if(iscarbon(target))
+		var/mob/living/carbon/hit_mob = target
+		var/thermal_protection = 1 - hit_mob.get_insulation_protection(hit_mob.bodytemperature + src.temperature)
 
-        // The new body temperature is adjusted by the bullet's effect temperature
-        // Reduce the amount of the effect temperature change based on the amount of insulation the mob is wearing
-        hit_mob.adjust_bodytemperature((thermal_protection * src.temperature) + src.temperature)
+		// The new body temperature is adjusted by the bullet's effect temperature
+		// Reduce the amount of the effect temperature change based on the amount of insulation the mob is wearing
+		hit_mob.adjust_bodytemperature((thermal_protection * src.temperature) + src.temperature)
 
-    else if(isliving(target))
-        var/mob/living/L = target
-        // the new body temperature is adjusted by the bullet's effect temperature
-        L.adjust_bodytemperature(temperature)
+	else if(isliving(target))
+		var/mob/living/L = target
+		// the new body temperature is adjusted by the bullet's effect temperature
+		L.adjust_bodytemperature(temperature)
 
 /mob/living/simple_animal/hostile/gnome/icnome/death()
 	var/turf/turf = get_turf(src)
@@ -225,3 +225,15 @@
 			to_chat(carbon, span_danger("You feel dumber."))
 		if(prob(28))
 			carbon.gain_trauma(/datum/brain_trauma/special/gnomosis)
+
+/datum/round_event/gribelspawn()
+	if(GLOB.gnome_kills++ = 25)
+	var/list/spawn_locs = list()
+	for(var/xeno_spawn in GLOB.xeno_spawn)
+		var/turf/T = xeno_spawn
+
+	if(!spawn_locs.len)
+		message_admins("No valid spawn locations found, aborting...")
+		return MAP_ERROR
+
+	var/mob/living/simple_animal/hostile/gribel = new ((pick(spawn_locs)))
