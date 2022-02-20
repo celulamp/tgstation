@@ -791,6 +791,7 @@
 
 /datum/dynamic_ruleset/roundstart/gnome/execute()
 	addtimer(CALLBACK(src, .proc/make_announcement, 10 SECONDS))	
+	time_stamp = world.time
 
 /datum/dynamic_ruleset/roundstart/gnome/proc/make_announcement()
 	priority_announce("A nearby station has been overrun by mysterious mystical creatures.", "Security level elevated.", ANNOUNCER_INTERCEPT)
@@ -803,4 +804,6 @@
 
 GLOBAL_VAR_INIT(gnome_kills, 0) 
 
-	
+/datum/dynamic_ruleset/roundstart/gnome/process()
+	if(world.time > time_stamp + 5 minutes)
+	time_stamp = world.time	
