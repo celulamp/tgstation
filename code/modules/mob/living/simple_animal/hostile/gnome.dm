@@ -227,7 +227,7 @@
 			carbon.gain_trauma(/datum/brain_trauma/special/gnomosis)
 
 /datum/round_event/gribelspawn()
-	if(GLOB.gnome_kills++ = 25)
+	if(GLOB.gnome_kills++ >= 25)
 	var/list/spawn_locs = list()
 	for(var/xeno_spawn in GLOB.xeno_spawn)
 		var/turf/T = xeno_spawn
