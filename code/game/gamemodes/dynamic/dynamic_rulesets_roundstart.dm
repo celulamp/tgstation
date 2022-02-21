@@ -805,5 +805,5 @@
 GLOBAL_VAR_INIT(gnome_kills, 0) 
 
 /datum/dynamic_ruleset/roundstart/gnome/process()
-	if(world.time > time_stamp + 5 minutes)
+	if(world.time > time_stamp + 5 MINUTES)
 	time_stamp = world.time	

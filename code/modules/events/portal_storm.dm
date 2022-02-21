@@ -20,6 +20,17 @@
 	boss_types = list(/mob/living/simple_animal/hostile/construct/artificer/hostile = 6)
 	hostile_types = list(/mob/living/simple_animal/hostile/construct/juggernaut/hostile = 8,\
 						/mob/living/simple_animal/hostile/construct/wraith/hostile = 6)
+/datum/round_event_control/portal_storm_gnome
+	name = "Portal Storm: Gnomes"
+	typepath = /datum/round_event/portal_storm/portal_storm_gnome
+	weight = 0
+	max_occurrences = 0
+	storm.color = "#bfff0e"
+
+/datum/round_event/portal_storm/portal_storm_gnome
+	boss_types = list(/mob/living/simple_animal/hostile/gnome/sternome/hostile = 6)
+	hostile_types = list(/mob/living/simple_animal/hostile/gnome/icnome/hostile = 8,\
+						/mob/living/simple_animal/hostile/gnome/hostile = 6)
 
 /datum/round_event/portal_storm
 	startWhen = 7
