@@ -25,7 +25,6 @@
 	typepath = /datum/round_event/portal_storm/portal_storm_gnome
 	weight = 0
 	max_occurrences = 0
-	storm.color = "#bfff0e"
 
 /datum/round_event/portal_storm/portal_storm_gnome
 	boss_types = list(/mob/living/simple_animal/hostile/gnome/sternome/hostile = 6)
