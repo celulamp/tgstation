@@ -806,4 +806,5 @@ GLOBAL_VAR_INIT(gnome_kills, 0)
 
 /datum/dynamic_ruleset/roundstart/gnome/process()
 	if(world.time > time_stamp + 5 MINUTES)
-	time_stamp = world.time	
+		time_stamp = world.time
+		var/datum/round/_event/event = E.runevent(/datum/round_event_control/portal_storm_gnome)
