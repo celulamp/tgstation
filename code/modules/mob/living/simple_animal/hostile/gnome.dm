@@ -215,6 +215,7 @@
 	mob_biotypes = MOB_ORGANIC|MOB_EPIC
 	plane = GAME_PLANE_UPPER_FOV_HIDDEN
 	mouse_opacity = MOUSE_OPACITY_OPAQUE
+	var/is_gribel_dead = FALSE
 
 /mob/living/simple_animal/hostile/gribel/AttackingTarget()
 	. = ..()
@@ -237,3 +238,6 @@
 		return MAP_ERROR
 
 	var/mob/living/simple_animal/hostile/gribel = new ((pick(spawn_locs)))
+
+/mob/living/simple_animal/hostile/gribel/death()
+	is_gribel_dead = TRUE
