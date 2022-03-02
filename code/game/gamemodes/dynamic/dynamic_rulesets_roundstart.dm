@@ -771,7 +771,9 @@
 
 	for(var/department_type in department_types)
 		create_separatist_nation(department_type, announcement = FALSE, dangerous = FALSE, message_admins = FALSE)
-		
+
+GLOBAL_VAR_INIT(gribelalive, FALSE)
+
 //////////////////////////////////////////////
 //                                          //
 //            GNOME INVASION                //
@@ -788,7 +790,6 @@
 	cost = 16
 	requirements = list(100,90,80,60,40,30,10,10,10,10)
 	flags = HIGH_IMPACT_RULESET
-	var/is_gribel_dead = FALSE
 
 /datum/dynamic_ruleset/roundstart/gnome/execute()
 	addtimer(CALLBACK(src, .proc/make_announcement, 10 SECONDS))	
@@ -806,10 +807,10 @@
 GLOBAL_VAR_INIT(gnome_kills, 0) 
 
 /datum/dynamic_ruleset/roundstart/gnome/process()
-  if(is_gribel_dead)
-    return RULESET_STOP_PROCESSING
-  
-  if(world.time > time_stamp + 5 MINUTES)
-    time_stamp = world.time
-    var/datum/round_event_control/portal_storm_gnome/gnome_invasion = New()
-    gnome_invasion.runEvent(FALSE)
+	if(!GLOB.gribelalive)
+		return RULESET_STOP_PROCESSING
+
+	if(world.time > time_stamp + 5 MINUTES)
+		time_stamp = world.time
+		var/datum/round_event_control/portal_storm_gnome/gnome_invasion = New()
+		gnome_invasion.runEvent(FALSE)

@@ -215,7 +215,6 @@
 	mob_biotypes = MOB_ORGANIC|MOB_EPIC
 	plane = GAME_PLANE_UPPER_FOV_HIDDEN
 	mouse_opacity = MOUSE_OPACITY_OPAQUE
-	var/is_gribel_dead = FALSE
 
 /mob/living/simple_animal/hostile/gribel/AttackingTarget()
 	. = ..()
@@ -229,15 +228,16 @@
 
 /datum/execute/gribelspawn()
 	if(GLOB.gnome_kills++ >= 25)
-	var/list/spawn_locs = list()
-	for(var/xeno_spawn in GLOB.xeno_spawn)
-		var/turf/T = xeno_spawn
+		var/list/spawn_locs = list()
+		for(var/xeno_spawn in GLOB.xeno_spawn)
+			var/turf/T = xeno_spawn
 
-	if(!spawn_locs.len)
-		message_admins("No valid spawn locations found, aborting...")
-		return MAP_ERROR
+		if(!spawn_locs.len)
+			message_admins("No valid spawn locations found, aborting...")
+			return MAP_ERROR
 
-	var/mob/living/simple_animal/hostile/gribel = new ((pick(spawn_locs)))
+		var/mob/living/simple_animal/hostile/gribel = new (pick(spawn_locs))
 
 /mob/living/simple_animal/hostile/gribel/death()
-	is_gribel_dead = TRUE
+	GLOB.gribelalive = FALSE
+	..()
