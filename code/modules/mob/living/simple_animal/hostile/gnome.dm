@@ -94,7 +94,8 @@
 	GLOB.gnome_kills++
 	if(plantdisguise)
 		plantdisguise.loc = loc
-		plantdisguise = null	
+		plantdisguise = null
+	gribelspawn()	
 	..()
 
 /mob/living/simple_animal/hostile/gnome/proc/consume_bait()
@@ -103,6 +104,17 @@
 			qdel(potential_consumption)
 			visible_message(span_notice("[src] gobbles down [potential_consumption]."))		
 
+/mob/living/simple_animal/hostile/gnome/proc/gribelspawn()
+	if(GLOB.gnome_kills++ >= 25)
+		var/list/spawn_locs = list()
+		for(var/xeno_spawn in GLOB.xeno_spawn)
+			var/turf/T = xeno_spawn
+
+		if(!spawn_locs.len)
+			message_admins("No valid spawn locations found, aborting...")
+			return MAP_ERROR
+
+		var/mob/living/simple_animal/hostile/gribel = new (pick(spawn_locs))
 /obj/item/clothing/head/gnome
 	name = "Gnome Hat"
 	desc = "Hat of the fallen child."
@@ -225,18 +237,6 @@
 			to_chat(carbon, span_danger("You feel dumber."))
 		if(prob(28))
 			carbon.gain_trauma(/datum/brain_trauma/special/gnomosis)
-
-/datum/execute/gribelspawn()
-	if(GLOB.gnome_kills++ >= 25)
-		var/list/spawn_locs = list()
-		for(var/xeno_spawn in GLOB.xeno_spawn)
-			var/turf/T = xeno_spawn
-
-		if(!spawn_locs.len)
-			message_admins("No valid spawn locations found, aborting...")
-			return MAP_ERROR
-
-		var/mob/living/simple_animal/hostile/gribel = new (pick(spawn_locs))
 
 /mob/living/simple_animal/hostile/gribel/death()
 	GLOB.gribelalive = FALSE
