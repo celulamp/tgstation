@@ -796,6 +796,7 @@ GLOBAL_VAR_INIT(gribelalive, FALSE)
 	time_stamp = world.time
 
 /datum/dynamic_ruleset/roundstart/gnome/proc/make_announcement()
+	message_admins("Announcement made")
 	priority_announce("A nearby station has been overrun by mysterious mystical creatures.", "Security level elevated.", ANNOUNCER_INTERCEPT)
 	if(SSsecurity_level.current_level < SEC_LEVEL_BLUE)
 		set_security_level(SEC_LEVEL_BLUE)	
@@ -814,3 +815,4 @@ GLOBAL_VAR_INIT(gnome_kills, 0)
 		time_stamp = world.time
 		var/datum/round_event_control/portal_storm_gnome/gnome_invasion = New()
 		gnome_invasion.runEvent(FALSE)
+		message_admins("Gnome storm activated")
