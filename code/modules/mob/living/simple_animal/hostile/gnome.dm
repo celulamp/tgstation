@@ -105,6 +105,7 @@
 			visible_message(span_notice("[src] gobbles down [potential_consumption]."))		
 
 /mob/living/simple_animal/hostile/gnome/proc/gribelspawn()
+	message_admins("Gribel arrives.")
 	if(GLOB.gnome_kills++ >= 25)
 		var/list/spawn_locs = list()
 		for(var/xeno_spawn in GLOB.xeno_spawn)
@@ -114,7 +115,7 @@
 			message_admins("No valid spawn locations found, aborting...")
 			return MAP_ERROR
 
-		var/mob/living/simple_animal/hostile/gribel = new (pick(spawn_locs))
+		var/mob/living/simple_animal/hostile/gribel = new /mob/living/simple_animal/hostile/gribel(pick(GLOB.xeno_spawn))
 /obj/item/clothing/head/gnome
 	name = "Gnome Hat"
 	desc = "Hat of the fallen child."
