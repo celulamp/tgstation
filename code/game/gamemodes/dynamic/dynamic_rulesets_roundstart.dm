@@ -773,6 +773,7 @@
 		create_separatist_nation(department_type, announcement = FALSE, dangerous = FALSE, message_admins = FALSE)
 
 GLOBAL_VAR_INIT(gribelalive, TRUE)
+GLOBAL_VAR_INIT(gribelspawned, FALSE)
 
 //////////////////////////////////////////////
 //                                          //
@@ -809,9 +810,11 @@ GLOBAL_VAR_INIT(gnome_kills, 0)
 
 /datum/dynamic_ruleset/roundstart/gnome/process()
 	if(!GLOB.gribelalive)
+		message_admins("Gnome Invasion ruleset stops processing")
 		return RULESET_STOP_PROCESSING
 
 	if(world.time > time_stamp + 5 MINUTES)
+		message_admins("5 Minutes have passed for gnome invasion ruleset")
 		time_stamp = world.time
 		var/datum/round_event_control/portal_storm_gnome/gnome_invasion = New()
 		gnome_invasion.runEvent(FALSE)

@@ -92,6 +92,7 @@
 
 /mob/living/simple_animal/hostile/gnome/death()
 	GLOB.gnome_kills++
+	message_admins("Gnome death increased")
 	if(plantdisguise)
 		plantdisguise.loc = loc
 		plantdisguise = null
@@ -106,11 +107,14 @@
 
 /mob/living/simple_animal/hostile/gnome/proc/gribelspawn()
 	message_admins("Gribel arrives.")
-	if(GLOB.gnome_kills >= 25)
-		var/mob/living/simple_animal/hostile/gribel/theGribel = new /mob/living/simple_animal/hostile/gribel(pick(GLOB.xeno_spawn))
-		if(!GLOB.xeno_spawn.len)
-			message_admins("No valid spawn locations found, aborting...")
-			return MAP_ERROR
+	if(!GLOB.gribelspawned)
+		if(GLOB.gnome_kills >= 25)
+			if(!GLOB.xeno_spawn.len)
+				message_admins("No valid spawn locations found, aborting...")
+				return MAP_ERROR
+			var/mob/living/simple_animal/hostile/gribel/theGribel = new /mob/living/simple_animal/hostile/gribel(pick(GLOB.xeno_spawn))
+			GLOB.gribelspawned = TRUE
+			message_admins("Gribel can not be respawned")
 /obj/item/clothing/head/gnome
 	name = "Gnome Hat"
 	desc = "Hat of the fallen child."
