@@ -772,7 +772,7 @@
 	for(var/department_type in department_types)
 		create_separatist_nation(department_type, announcement = FALSE, dangerous = FALSE, message_admins = FALSE)
 
-GLOBAL_VAR_INIT(gribelalive, FALSE)
+GLOBAL_VAR_INIT(gribelalive, TRUE)
 
 //////////////////////////////////////////////
 //                                          //
@@ -792,8 +792,8 @@ GLOBAL_VAR_INIT(gribelalive, FALSE)
 	flags = HIGH_IMPACT_RULESET
 
 /datum/dynamic_ruleset/roundstart/gnome/execute()
-	addtimer(CALLBACK(src, .proc/make_announcement, 10 SECONDS))	
 	time_stamp = world.time
+	addtimer(CALLBACK(src, .proc/make_announcement, 10 SECONDS))	
 
 /datum/dynamic_ruleset/roundstart/gnome/proc/make_announcement()
 	message_admins("Announcement made")
