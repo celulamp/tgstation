@@ -112,7 +112,7 @@
 			if(!GLOB.xeno_spawn.len)
 				message_admins("No valid spawn locations found, aborting...")
 				return MAP_ERROR
-			var/mob/living/simple_animal/hostile/gribel/theGribel = new /mob/living/simple_animal/hostile/gribel(pick(GLOB.xeno_spawn))
+			new /mob/living/simple_animal/hostile/gribel((pick(GLOB.xeno_spawn))
 			GLOB.gribelspawned = TRUE
 			message_admins("Gribel can not be respawned")
 /obj/item/clothing/head/gnome

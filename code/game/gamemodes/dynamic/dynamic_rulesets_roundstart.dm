@@ -793,6 +793,7 @@ GLOBAL_VAR_INIT(gribelspawned, FALSE)
 	flags = HIGH_IMPACT_RULESET
 
 /datum/dynamic_ruleset/roundstart/gnome/execute()
+	message_admins("Gnome invasion executed")
 	time_stamp = world.time
 	addtimer(CALLBACK(src, .proc/make_announcement, 10 SECONDS))	
 
@@ -809,6 +810,7 @@ GLOBAL_VAR_INIT(gribelspawned, FALSE)
 GLOBAL_VAR_INIT(gnome_kills, 0) 
 
 /datum/dynamic_ruleset/roundstart/gnome/process()
+	message_admins("Gnome invasion processed")
 	if(!GLOB.gribelalive)
 		message_admins("Gnome Invasion ruleset stops processing")
 		return RULESET_STOP_PROCESSING
