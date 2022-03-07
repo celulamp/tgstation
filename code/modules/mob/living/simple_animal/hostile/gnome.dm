@@ -115,6 +115,7 @@
 			new /mob/living/simple_animal/hostile/gribel((pick(GLOB.xeno_spawn))
 			GLOB.gribelspawned = TRUE
 			message_admins("Gribel can not be respawned")
+
 /obj/item/clothing/head/gnome
 	name = "Gnome Hat"
 	desc = "Hat of the fallen child."
@@ -129,7 +130,7 @@
 	var/temperature = -5
 	loot = list()
 	has_drip = FALSE
-	can_disguise = FALSE	
+	can_disguise = FALSE
 
 /mob/living/simple_animal/hostile/gnome/icnome/AttackingTarget()
 	. = ..()
