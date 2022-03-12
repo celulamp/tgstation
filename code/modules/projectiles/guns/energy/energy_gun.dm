@@ -152,3 +152,17 @@
 			. += "[icon_state]_fail_1"
 		if(151 to INFINITY)
 			. += "[icon_state]_fail_2"
+
+/obj/item/gun/energy/e_gun/flashgun
+	name = "Flash Gun"
+	desc = "A modified flashlight that shoots condensed electromagnetic radiation."
+	icon_state = "flashgun"
+	inhand_icon_state = "flashlight"
+	worn_icon_state = "flashlight"
+	lefthand_file = 'icons/mob/inhands/misc/devices_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/misc/devices_righthand.dmi'
+	ammo_type = list(/obj/item/ammo_casing/energy/disabler, /obj/item/ammo_casing/energy/laser)
+	weapon_weight = WEAPON_HEAVY
+	can_flashlight = FALSE
+	trigger_guard = TRIGGER_GUARD_NONE
+	slot_flags = null	

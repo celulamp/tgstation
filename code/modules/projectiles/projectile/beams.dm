@@ -218,3 +218,21 @@
 	if(isopenturf(target) || istype(target, /turf/closed/indestructible))//shrunk floors wouldnt do anything except look weird, i-walls shouldn't be bypassable
 		return
 	target.AddComponent(/datum/component/shrink, shrink_time)
+
+/obj/projectile/beam/superlightbeam
+	name = "power of the sun"
+	icon_state = "laser"
+	hitsound = 'sound/weapons/sear.ogg'
+	hitsound_wall = 'sound/weapons/effects/searwall.ogg'
+	damage = 10
+	damage_type = BURN
+	flag = ENERGY
+	impact_effect_type = /obj/effect/temp_visual/impact_effect/red_laser
+	light_color = LIGHT_COLOR_YELLOW
+
+/obj/projectile/beam/superlightbeam/on_hit(atom/target, blocked = FALSE)
+	. = ..()
+	if(ismob(target))
+		var/mob/target_mob = target
+		if(!(ismoth(target_mob) || target_mob.faction = "gnome"))
+			return
