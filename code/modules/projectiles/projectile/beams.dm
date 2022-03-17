@@ -231,8 +231,8 @@
 	light_color = LIGHT_COLOR_YELLOW
 
 /obj/projectile/beam/superlightbeam/on_hit(atom/target, blocked = FALSE)
-	. = ..()
 	if(ismob(target))
 		var/mob/target_mob = target
-		if(!(ismoth(target_mob) || target_mob.faction = "gnome"))
+		if(!ismoth(target_mob) || target_mob.faction != "gnome")
 			return
+	. = ..()		

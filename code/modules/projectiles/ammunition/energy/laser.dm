@@ -96,3 +96,8 @@
 /obj/item/ammo_casing/energy/nanite/cryo
 	projectile_type = /obj/projectile/energy/cryo
 	select_name = "cryo"
+
+/obj/item/ammo_casing/energy/flashgun
+	projectile_type = /obj/projectile/beam/superlightbeam
+	e_cost = 70
+	fire_sound = 'sound/weapons/laser3.ogg'
