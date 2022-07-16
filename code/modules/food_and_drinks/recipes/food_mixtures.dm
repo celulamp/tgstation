@@ -29,6 +29,18 @@
 		new /obj/item/food/tofu(location)
 	return
 
+/datum/chemical_reaction/food/candycorn
+	required_reagents = list(/datum/reagent/consumable/corn_oil = 5)
+	required_catalysts = list(/datum/reagent/consumable/sugar = 5)
+	mob_react = FALSE
+	reaction_flags = REACTION_INSTANT
+
+/datum/chemical_reaction/food/candycorn/on_reaction(datum/reagents/holder, datum/equilibrium/reaction, created_volume)
+	var/location = get_turf(holder.my_atom)
+	for(var/i in 1 to created_volume)
+		new /obj/item/food/candy_corn(location)
+	return
+
 /datum/chemical_reaction/food/chocolatepudding
 	results = list(/datum/reagent/consumable/chocolatepudding = 20)
 	required_reagents = list(/datum/reagent/consumable/cream = 5, /datum/reagent/consumable/coco = 5, /datum/reagent/consumable/eggyolk = 2)
